@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHIH の Photography</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandBg: '#09090b',       /* 極致深焦黑 */
+                        brandCard: '#18181b',     /* 卡片深灰 */
+                        brandMuted: '#a1a1aa',    /* 科技冷銀 */
+                        brandBorder: '#27272a',   /* 細節邊框 */
+                        brandAccent: '#f4f4f5',   /* 高亮冷白 */
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Playfair Display & Noto Sans TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <style>
+        /* 隱藏滾動條但保留功能 */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="bg-brandBg text-brandAccent selection:bg-brandAccent selection:text-brandBg antialiased min-h-screen flex flex-col justify-between font-sans">
+
+    <!-- 1. 導覽列 (Navigation) -->
+    <nav class="sticky top-0 z-40 bg-brandBg/80 backdrop-blur-md border-b border-brandBorder">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="#" class="font-serif text-xl tracking-[0.2em] hover:opacity-80 transition-opacity">CHIH の Photography</a>
+            
+            <!-- 電腦版選單 -->
+            <div class="hidden md:flex space-x-10 text-xs tracking-widest text-brandMuted">
+                <a href="#home" class="hover:text-brandAccent transition-colors">首頁</a>
+                <a href="#about" class="hover:text-brandAccent transition-colors">關於</a>
+                <a href="#portfolio" class="hover:text-brandAccent transition-colors">作品</a>
+                <a href="#contact" class="hover:text-brandAccent transition-colors">聯絡</a>
+            </div>
+
+            <!-- 行動版選單按鈕 -->
+            <button id="menu-btn" class="md:hidden text-brandAccent focus:outline-none cursor-pointer">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- 行動版下拉選單 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0e0e11] border-b border-brandBorder px-6 py-6 space-y-4 text-center tracking-widest text-sm">
+            <a href="#home" class="block text-brandMuted hover:text-brandAccent py-2">首頁</a>
+            <a href="#about" class="block text-brandMuted hover:text-brandAccent py-2">關於</a>
+            <a href="#portfolio" class="block text-brandMuted hover:text-brandAccent py-2">作品</a>
+            <a href="#contact" class="block text-brandMuted hover:text-brandAccent py-2">聯絡</a>
+        </div>
+    </nav>
+
+    <!-- 2. 首頁 / 品牌定位 (Hero Section) -->
+    <section id="home" class="relative h-[85vh] flex items-center justify-center overflow-hidden px-6">
+        <!-- 滿版大圖背景 (數位相機高畫質、高對比視覺) -->
+        <div class="absolute inset-0 z-0">
+            <img src="images\IMG_0068.JPG"" alt="數位相機拍攝的主視覺" class="w-full h-full object-cover opacity-35 filter brightness-90 contrast-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-brandBg via-transparent to-transparent"></div>
+        </div>
+        
+        <div class="relative z-10 text-center max-w-3xl">
+            
+            <h1 class="font-serif text-3xl md:text-5xl font-light tracking-wide leading-relaxed mb-6">
+                用鏡頭收藏城市的寂靜，<br>在光影之間，尋找被忽略的故事。</span>
+            </h1>
+            <p class="text-xs md:text-sm text-brandMuted max-w-lg mx-auto font-light leading-relaxed mb-8">
+                我是方亭之，一個喜歡用畫面表達自己內心世界的攝影師。
+            </p>
+            <a href="#portfolio" class="inline-block border border-brandAccent/30 hover:border-brandAccent text-[10px] tracking-[0.3em] uppercase px-8 py-4 transition-all duration-300">
+                Explore More
+            </a>
+        </div>
+    </section>
+
+    <!-- 3. 關於我 / 品牌敘事 (About Section) -->
+    <section id="about" class="max-w-5xl mx-auto px-6 py-24 md:py-32 border-t border-brandBorder">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+            <!-- 個人形象照（高畫質數位感） -->
+            <div class="md:col-span-5 aspect-[3/4] overflow-hidden bg-brandCard">
+                <img src="https://images.unsplash.com/photo-1554080353-a576cf803bda?q=80&w=600" alt="個人工作側拍" class="w-full h-full object-cover filter contrast-105">
+            </div>
+            <!-- 個人敘事內容 -->
+            <div class="md:col-span-7 space-y-6">
+                <span class="text-xs tracking-[0.3em] text-brandMuted uppercase block">About</span>
+                <h2 class="font-serif text-3xl font-light tracking-wide">方亭之｜Photographer</h2>
+                <div class="text-brandMuted font-light leading-relaxed space-y-4 text-sm">
+                    <p>攝影對我來說，是與世界對話和表達自我的方式，也是記錄時間與情感的媒介。</p>
+                    <p>我喜歡觀察城市裡那些容易被忽略的瞬間：獨自等待的人、夜晚的街道、光影交錯的角落，以及人群中的疏離感。我的作品常以孤獨、寧靜與留白作為主題，希望透過鏡頭捕捉情緒，而不只是畫面。</p>
+                </div>
+                <div class="pt-6 border-t border-brandBorder grid grid-cols-2 gap-4 text-xs tracking-wider text-brandMuted">
+                    <div>
+                        <p class="text-brandAccent mb-1">數位相機</p>
+                        <p>Canon EOS 600D</p>
+                        <p>Canon 5D Mark III</p>
+                    </div>
+                    <div>
+                        <p class="text-brandAccent mb-1">主要領域</p>
+                        <p>風景 / 都市街頭 </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 作品集與分類篩選 (Portfolio Section) -->
+    <section id="portfolio" class="max-w-6xl mx-auto px-6 py-12 border-t border-brandBorder flex-grow">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+                <span class="text-xs tracking-[0.3em] text-brandMuted uppercase block mb-2">Portfolio</span>
+                <h2 class="font-serif text-3xl font-light tracking-wide">我的作品</h2>
+            </div>
+            
+            <!-- 分類標籤 -->
+            <div class="flex flex-wrap gap-2 text-[10px] tracking-widest">
+                <button onclick="filterWorks('all')" class="filter-btn active-filter px-4 py-2 border border-brandAccent bg-brandAccent text-brandBg transition-all duration-300 cursor-pointer">全部作品</button>
+                <button onclick="filterWorks('portrait')" class="filter-btn px-4 py-2 border border-brandBorder text-brandMuted hover:border-brandAccent/40 transition-all duration-300 cursor-pointer">風景</button>
+                <button onclick="filterWorks('street')" class="filter-btn px-4 py-2 border border-brandBorder text-brandMuted hover:border-brandAccent/40 transition-all duration-300 cursor-pointer">街頭紀實</button>
+            
+            </div>
+        </div>
+
+        <!-- 作品網格 (數位相機拍攝示例) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <!-- 照片 1：風景 -->
+            <div class="work-item portrait group cursor-pointer overflow-hidden bg-brandCard" 
+                 onclick="openLightbox('images/IMG_0001.JPG', '霧中的歸途', 'Canon EOS 600D | 35mm f/4.5 1/200秒 ISO 100', '濃霧吞沒了遠方的視線，森林沉默地佇立在道路兩旁。<br><br>按下快門的那一刻，周圍只有風聲與雨後潮濕的氣息。沒有車輛經過，也沒有行人的腳步聲，彷彿整個世界只剩下這條道路，獨自延伸向未知的遠方。<br><br>我喜歡這樣的畫面，它不熱鬧，也不刻意訴說什麼，而是在寂靜之中留下想像的空間。孤獨並非空白，而是一種能讓人與自己對話的風景。')">
+                <div class="aspect-[4/5] overflow-hidden">
+                    <img src="images/IMG_0001.jpg" alt="風景" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                </div>
+                <div class="mt-3 flex justify-between items-center text-xs tracking-wider">
+                    <span class="text-brandAccent/80">霧中的歸途</span>
+                </div>
+            </div>
+            
+            <!-- 照片 2：風景 -->
+            <div class="work-item portrait group cursor-pointer overflow-hidden bg-brandCard" 
+                 onclick="openLightbox('images/IMG_8797.JPG', '橘色餘暉', 'Canon EOS 600D | 135mm f/5.6 1/1250秒 ISO 100', '當太陽緩緩沉入地平線，世界被染成溫暖的橘色，<br>雲朵、海面與遠方的輪廓都形成了剪影。<br><br>這一刻時間彷彿慢了下來，只剩下光與影之間的寧靜對話。<br><br>我按下快門，試圖將這份短暫的美好，<br>留在永恆的畫面裡。')">
+                <div class="aspect-[4/5] overflow-hidden">
+                    <img src="images/IMG_8797.JPG" alt="街頭紀實" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                </div>
+                <div class="mt-3 flex justify-between items-center text-xs tracking-wider">
+                    <span class="text-brandAccent/80">橘色餘暉</span>
+                </div>
+            </div>
+
+            <!-- 照片 3：街頭 -->
+            <div class="work-item street group cursor-pointer overflow-hidden bg-brandCard"
+                 onclick="openLightbox('images/IMG_0006.JPG', '紅燈未熄', 'Canon EOS 600D | 135mm f/5.6 1/100秒 ISO 3200', '深夜的街道少了白天的喧囂，只剩零星的車燈與路燈照亮前方。<br><br>紅燈亮著，車輛暫時停下腳步，城市彷彿也在這一刻放慢了呼吸。街道兩旁仍有人經過，卻彼此沒有交集，每個人都朝著自己的方向前進。<br><br>我喜歡夜晚的城市，因為它總能讓人感受到一種特別的孤獨。那不是悲傷，而是一種與自己相處的寧靜。在光與影交錯之間，那些平時被忽略的情緒，也變得格外清晰。<br><br>這張照片記錄的不是繁華，而是城市在沉默時最真實的模樣。')">
+                <div class="aspect-[4/5] overflow-hidden">
+                    <img src="images/IMG_0006.JPG" alt="街頭紀實" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                </div>
+                <div class="mt-3 flex justify-between items-center text-xs tracking-wider">
+                    <span class="text-brandAccent/80">紅燈未熄</span>
+                </div>
+            </div>
+
+            <!-- 照片 4：街頭限定（不會顯示在「全部作品」中，只有點選「街頭紀實」才會顯示） -->
+            <div class="work-item street hide-in-all group cursor-pointer overflow-hidden bg-brandCard" 
+                style="display: none;" 
+                onclick="openLightbox('images/IMG_3557.JPG', '歲月柑仔店', 'Canon EOS 600D | 50mm f/1.8 1/400秒 ISO 1600', '當整座城市陷入沉睡，總有一盞燈為晚歸的人而留。<br><br>照片記錄下台灣街頭最真實的深夜一隅。在黑夜的包覆下，這間傳統老店像是一個充滿安全感的港灣，凌亂中帶有秩序的陳列，是生活最扎實的重量。<br><br>白髮蒼蒼的老者與年輕身影在同一個空間裡交錯，日光燈在黑夜中暈染開來，彷彿這間店販售的不只是雜貨，更是一段被時光定格的溫暖日常。')">
+                <div class="aspect-[4/5] overflow-hidden">
+                    <img src="images/IMG_3557.JPG" alt="街頭紀實" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                </div>
+                <div class="mt-3 flex justify-between items-center text-xs tracking-wider">
+                    <span class="text-brandAccent/80">歲月柑仔店</span>
+                </div>
+            </div>
+
+             <!-- 照片 5：街頭限定（不會顯示在「全部作品」中，只有點選「街頭紀實」才會顯示） -->
+            <div class="work-item street hide-in-all group cursor-pointer overflow-hidden bg-brandCard" 
+                style="display: none;" 
+                onclick="openLightbox('images/IMG_3770.JPG', '時光的迴廊', 'Canon EOS 600D | 52mm f/5.6 1/80秒 ISO 800', '在紅磚疊砌的狹窄巷弄中，歲月被拉成了長長的一條線。<br><br>畫面兩側粗糙且色澤深淺不一的磚牆，無聲地記錄了數十年的風雨與日常，巷弄深處微微低頭、緩步前行的長者，如同這條舊街廓的守護者與見證人。<br><br>鏡頭捕捉了這充滿壓縮感的一幕，當現代城市的喧囂被隔絕在巷口之外，老人的步伐與舊時建築在微濕的空氣中交融，交織出一幅關於時間、記憶與陪伴的無聲樂章。')">
+                <div class="aspect-[4/5] overflow-hidden">
+                    <img src="images/IMG_3770.JPG" alt="街頭紀實" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                </div>
+                <div class="mt-3 flex justify-between items-center text-xs tracking-wider">
+                    <span class="text-brandAccent/80">時光的迴廊</span>
+                </div>
+            </div>
+
+             <!-- 照片 6：街頭限定（不會顯示在「全部作品」中，只有點選「街頭紀實」才會顯示） -->
+            <div class="work-item street hide-in-all group cursor-pointer overflow-hidden bg-brandCard" 
+                style="display: none;" 
+                onclick="openLightbox('images/IMG_4004.JPG', '路燈下的無聲對白', 'Canon EOS 600D | 42mm f/5 1/100秒 ISO 1600', '一盞老舊的路燈，一輛滿載的三輪車，在深夜兩點展開一場關於守候的無聲對白。<br><br>鏡頭聚焦於光影交界，燈光如同一道冷冽的劇光，將這具充滿生活重荷的三輪車與路燈本身從黑暗中抽離出來。原本清晰的小吃店招牌已模糊為不可辨識的暗影，遠方的喧囂已然止息。')">
+                <div class="aspect-[4/5] overflow-hidden">
+                    <img src="images/IMG_4004.JPG" alt="街頭紀實" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                </div>
+                <div class="mt-3 flex justify-between items-center text-xs tracking-wider">
+                    <span class="text-brandAccent/80">路燈下的無聲對白</span>
+                </div>
+            </div>
+
+            <!-- 照片 7：街頭限定（不會顯示在「全部作品」中，只有點選「街頭紀實」才會顯示） -->
+            <div class="work-item street hide-in-all group cursor-pointer overflow-hidden bg-brandCard" 
+                style="display: none;" 
+                onclick="openLightbox('images/IMG_2870.JPG', '笑看日常', 'Canon EOS 600D | 20mm f/4.5 1/160秒 ISO 400', '一份報紙、一張椅子、一個平凡的午後。<br><br>鏡頭捕捉到攤販主人抬起頭來的瞬間，那毫不造作的笑容，讓繁忙的市場角落頓時有了溫度。生活或許並不總是輕鬆，但在短暫停下腳步的片刻裡，仍能以最真誠的神情面對世界。<br><br>作品試圖呈現的不是市場的熱鬧，而是平凡日常中最動人的人情風景。那些藏在勞動與歲月之間的笑容，往往比任何華麗場景都更能觸動人心。')">
+                <div class="aspect-[4/5] overflow-hidden">
+                    <img src="images/IMG_2870.JPG" alt="街頭紀實" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                </div>
+                <div class="mt-3 flex justify-between items-center text-xs tracking-wider">
+                    <span class="text-brandAccent/80">笑看日常</span>
+                </div>
+            </div>
+
+    </section>
+
+    <!-- 5. 頁尾 / 社群導流 (Footer & Contact) -->
+    <footer id="contact" class="bg-[#0c0c0e] border-t border-brandBorder py-16 px-6">
+        <div class="max-w-4xl mx-auto text-center space-y-8">
+            <div class="space-y-2">
+                <span class="text-xs tracking-[0.3em] text-brandMuted uppercase block">Let's Connect</span>
+                <h3 class="font-serif text-2xl font-light tracking-wide">與我聯繫</h3>
+            </div>
+            
+
+            <!-- 純社群與複製 Email 按鈕群 -->
+            <div class="flex flex-wrap justify-center items-center gap-4 text-xs tracking-widest pt-2">
+                <a href="https://www.instagram.com/chih._____/" target="_blank" class="px-6 py-3 border border-brandBorder text-brandAccent hover:border-brandAccent hover:bg-brandAccent hover:text-brandBg transition-all duration-300">
+                    INSTAGRAM
+                </a>
+                <a href="https://www.threads.com/@chih._____" target="_blank" class="px-6 py-3 border border-brandBorder text-brandAccent hover:border-brandAccent hover:bg-brandAccent hover:text-brandBg transition-all duration-300">
+                    THREADS
+                </a>
+                <!-- 一鍵複製 Email 鈕 -->
+                <button onclick="copyEmail('tingchihfang@gmail.com')" class="px-6 py-3 border border-brandAccent/30 bg-brandCard text-brandAccent hover:border-brandAccent transition-all duration-300 cursor-pointer">
+                    複製 EMAIL 信箱
+                </button>
+            </div>
+
+            <div class="pt-8 border-t border-brandBorder text-[10px] tracking-[0.25em] text-[#555]">
+                &copy; 2026 CHIH の Photography. ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+
+    <!-- 💡 互動元件 1: 故事燈箱彈窗 (Lightbox Modal) -->
+    <div id="lightbox" class="fixed inset-0 z-50 hidden bg-brandBg/95 backdrop-blur-sm p-4 flex items-center justify-center animate-fade-in">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-brandMuted hover:text-brandAccent transition-colors cursor-pointer z-50">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+        
+        <div class="max-w-5xl w-full grid grid-cols-1 md:grid-cols-12 gap-8 items-center max-h-[90vh] overflow-y-auto md:overflow-visible">
+            <!-- 燈箱左側：相片 -->
+            <div class="md:col-span-7 flex justify-center">
+                <img id="lightbox-img" src="" alt="Zoomed Photo" class="max-h-[70vh] md:max-h-[80vh] w-auto object-contain shadow-2xl border border-brandBorder">
+            </div>
+            <!-- 燈箱右側：數位規格與故事 -->
+            <div class="md:col-span-5 space-y-4 text-left">
+                <h4 id="lightbox-title" class="font-serif text-2xl font-light tracking-wide text-brandAccent"></h4>
+                <p id="lightbox-exif" class="font-mono text-xs text-brandMuted tracking-wider bg-brandCard py-1.5 px-3 inline-block rounded border border-brandBorder"></p>
+                <hr class="border-brandBorder">
+                <p id="lightbox-desc" class="text-sm text-brandMuted font-light leading-relaxed"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 💡 互動元件 2: 複製成功提示 (Toast Notification) -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-brandAccent text-brandBg text-xs tracking-widest px-6 py-3.5 shadow-2xl font-medium transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none rounded">
+        信箱已成功複製到剪貼簿！
+    </div>
+
+    <!-- JavaScrip 邏輯與互動行為 -->
+    <script>
+        // 1. 行動版選單控制
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // 2. 作品集篩選 (Filter)
+        function filterWorks(category) {
+            // 變更按鈕樣式
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brandAccent', 'text-brandBg');
+                btn.classList.add('text-brandMuted', 'border-brandBorder');
+            });
+            event.target.classList.add('bg-brandAccent', 'text-brandBg');
+            event.target.classList.remove('text-brandMuted', 'border-brandBorder');
+
+            // 篩選項目
+            const items = document.querySelectorAll('.work-item');
+            items.forEach(item => {
+                if (category === 'all') {
+                    // 有 hide-in-all 的項目在全部作品不顯示
+                    item.style.display = item.classList.contains('hide-in-all') ? 'none' : 'block';
+                } else if (item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+});
+        }
+
+        // 3. 故事燈箱開啟/關閉
+        function openLightbox(imgSrc, title, exif, desc) {
+            document.getElementById('lightbox-img').src = imgSrc;
+            document.getElementById('lightbox-title').innerHTML = title;
+            document.getElementById('lightbox-exif').innerHTML = exif;
+            document.getElementById('lightbox-desc').innerHTML = desc;
+            
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // 鎖定底層網頁捲動
+        }
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('hidden');
+            document.body.style.overflow = ''; // 解除底層網頁捲動
+        }
+
+        // 4. 一鍵複製 Email 功能
+        function copyEmail(email) {
+            // 利用舊版相容性較佳的 execCommand，防範 iframe 環境下的 clipboard 限制
+            const tempInput = document.createElement('input');
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                const toast = document.getElementById('toast');
+                toast.classList.remove('translate-y-20', 'opacity-0');
+                setTimeout(() => {
+                    toast.classList.add('translate-y-20', 'opacity-0');
+                }, 3000);
+            } catch (err) {
+                console.error('無法複製 Email: ', err);
+            }
+            document.body.removeChild(tempInput);
+        }
+    </script>
+</body>
+</html>
